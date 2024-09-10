@@ -1,4 +1,4 @@
-﻿namespace OtusHomeWorks
+﻿namespace StackClassHomework
 {
     /// <summary>
     /// Класс - расширение для класса Stack

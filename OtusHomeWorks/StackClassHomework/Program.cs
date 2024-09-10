@@ -1,4 +1,4 @@
-﻿namespace OtusHomeWorks
+﻿namespace StackClassHomework
 {
     internal class Program
     {

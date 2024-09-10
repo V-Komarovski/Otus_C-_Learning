@@ -1,4 +1,4 @@
-﻿namespace OtusHomeWorks.Common
+﻿namespace StackClassHomework.Common
 {
     public class StackException : Exception
     {

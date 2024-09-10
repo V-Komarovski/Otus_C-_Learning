@@ -1,6 +1,6 @@
-﻿using OtusHomeWorks.Common;
+﻿using StackClassHomework.Common;
 
-namespace OtusHomeWorks
+namespace StackClassHomework
 {
     public sealed class Stack
     { 
