@@ -1,7 +1,7 @@
 ﻿namespace StackClassHomework
 {
     /// <summary>
-    /// Класс - расширение для класса Stack
+    /// Расширения для класса Stack
     /// </summary>
     public static class StackExtensions
     {
