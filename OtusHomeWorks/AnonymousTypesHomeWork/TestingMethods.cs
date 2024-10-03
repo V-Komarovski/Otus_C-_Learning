@@ -4,11 +4,11 @@ namespace AnonymousTypesHomework
 {
     internal static class TestingMethods
     {
-        private const string _planetNameHeader = "Название планеты: ";
-        private const string _positionNumberHeader = "Порядковый номер от Солнца: ";
-        private const string _equatorLengthHeader = "Длина экватора: ";
-        private const string _isEqualVenusHeader = "Эквивалента ли Венере: ";
-        private const string _separatorLine = "---------------------";
+        private const string PlanetNameHeader = "Название планеты: ";
+        private const string PositionNumberHeader = "Порядковый номер от Солнца: ";
+        private const string EquatorLengthHeader = "Длина экватора: ";
+        private const string IsEqualVenusHeader = "Эквивалента ли Венере: ";
+        private const string SeparatorLine = "---------------------";
 
         internal static void ExecuteFirstProgram()
         {
@@ -20,75 +20,48 @@ namespace AnonymousTypesHomework
             var mars = new { Name = "Марс", PositionNumberFromTheSun = (short)SolarSystemPlanets.Mars, EquatorLength = 21344, PreviousPlanet = earth };
             var secondVenus = new { Name = "Венера", PositionNumberFromTheSun = (short)SolarSystemPlanets.Venus, EquatorLength = 38025, PreviousPlanet = mercury };
 
-            Console.WriteLine(_separatorLine);
-            Console.WriteLine(_planetNameHeader + venus.Name);
-            Console.WriteLine(_positionNumberHeader + venus.PositionNumberFromTheSun);
-            Console.WriteLine($"{_equatorLengthHeader} {venus.EquatorLength} км.");
-            Console.WriteLine($"{_isEqualVenusHeader} {(venus.Equals(venus) ? "Да" : "Нет")}");
-            Console.WriteLine(_separatorLine);
-
-            Console.WriteLine(_separatorLine);
-            Console.WriteLine(_planetNameHeader + earth.Name);
-            Console.WriteLine(_positionNumberHeader + earth.PositionNumberFromTheSun);
-            Console.WriteLine($"{_equatorLengthHeader} {earth.EquatorLength} км.");
-            Console.WriteLine($"{_isEqualVenusHeader} {(earth.Equals(venus) ? "Да" : "Нет")}");
-            Console.WriteLine(_separatorLine);
-
-            Console.WriteLine(_separatorLine);
-            Console.WriteLine(_planetNameHeader + mars.Name);
-            Console.WriteLine(_positionNumberHeader + mars.PositionNumberFromTheSun);
-            Console.WriteLine($"{_equatorLengthHeader} {mars.EquatorLength} км.");
-            Console.WriteLine($"{_isEqualVenusHeader} {(mars.Equals(venus) ? "Да" : "Нет")}");
-            Console.WriteLine(_separatorLine);
-
-            Console.WriteLine(_separatorLine);
-            Console.WriteLine(_planetNameHeader + secondVenus.Name);
-            Console.WriteLine(_positionNumberHeader + secondVenus.PositionNumberFromTheSun);
-            Console.WriteLine($"{_equatorLengthHeader} {secondVenus.EquatorLength} км.");
-            Console.WriteLine($"{_isEqualVenusHeader} {(secondVenus.Equals(venus) ? "Да" : "Нет")}");
-            Console.WriteLine(_separatorLine);
+            PrintPlanetInfo(venus.Name, venus.PositionNumberFromTheSun, venus.EquatorLength, null, venus.Equals(venus));
+            PrintPlanetInfo(earth.Name, earth.PositionNumberFromTheSun, earth.EquatorLength, null, earth.Equals(venus));
+            PrintPlanetInfo(mars.Name, mars.PositionNumberFromTheSun, mars.EquatorLength, null, mars.Equals(venus));
+            PrintPlanetInfo(secondVenus.Name, secondVenus.PositionNumberFromTheSun, secondVenus.EquatorLength, null, secondVenus.Equals(venus));
         }
 
         internal static void ExecuteSecondProgram()
         {
             var planets = new[] { "Земля", "Лимония", "Марс" };
             var planetsCatalog = new PlanetsCatalog();
-            foreach (var planetName in planets)
-            {
-                var planetInfo = planetsCatalog.GetPlanetByName(planetName);
-                PrintPlanetInfo(
-                    planetName,
-                    planetInfo.positionNumber,
-                    planetInfo.equatorLength,
-                    planetInfo.exMessage);
-            }
+            Func<string, (short, int, string?)> method = planetsCatalog.GetPlanetByName;
+            CallPlanetsCatalogMethod(
+                planets,
+                planetsCatalog,
+                method);
         }
 
         internal static void ExecuteThirdProgram()
         {
             var planets = new[] { "Земля", "Лимония", "Марс" };
             var planetsCatalog = new PlanetsCatalog();
+
+            Console.WriteLine("Планеты с первым валидатором");
             var validator = (string name) => planetsCatalog.GetPlanetByNameCallCount % 3 == 0
                 ? "Вы спрашиваете слишком часто"
                 : null;
-
-            Console.WriteLine("Планеты с первым валидатором");
-
-            foreach (var planetName in planets)
-            {
-                var planetInfo = planetsCatalog.GetPlanetByName(planetName, validator);
-                PrintPlanetInfo(
-                    planetName,
-                    planetInfo.positionNumber,
-                    planetInfo.equatorLength,
-                    planetInfo.exMessage);
-            }
+            Func<string, (short, int, string?)> method = (string name) => planetsCatalog.GetPlanetByName(name, validator);
+            CallPlanetsCatalogMethod(planets, planetsCatalog, method);
 
             Console.WriteLine("\nПланеты со вторым валидатором");
             validator = (string name) => name is "Лимония" ? "Это запретная планета" : null;
-            foreach (var planetName in planets)
+            CallPlanetsCatalogMethod(planets, planetsCatalog, method);
+        }
+
+        private static void CallPlanetsCatalogMethod(
+            string[] planetNames,
+            PlanetsCatalog catalog,
+            Func<string, (short positionNumber, int equatorLength, string? exMessage)> callingMethod)
+        {
+            foreach (var planetName in planetNames)
             {
-                var planetInfo = planetsCatalog.GetPlanetByName(planetName, validator);
+                var planetInfo = callingMethod(planetName);
                 PrintPlanetInfo(
                     planetName,
                     planetInfo.positionNumber,
@@ -97,24 +70,30 @@ namespace AnonymousTypesHomework
             }
         }
 
+        private static void PrintPlanetInfo(string name, short positionNumber, int equatorLength, string? exMessage)
+            => PrintPlanetInfo(name, positionNumber, equatorLength, exMessage, null);
+
         private static void PrintPlanetInfo(
             string name,
             short positionNumber,
             int equatorLength,
-            string? exMessage)
+            string? exMessage,
+            bool? IsEqualVenus)
         {
-            Console.WriteLine(_separatorLine);
+            Console.WriteLine(SeparatorLine);
             if (!string.IsNullOrEmpty(exMessage))
             {
                 Console.WriteLine(exMessage);
             }
             else
             {
-                Console.WriteLine(_planetNameHeader + name);
-                Console.WriteLine(_positionNumberHeader + positionNumber);
-                Console.WriteLine($"{_equatorLengthHeader} {equatorLength} км.");
+                Console.WriteLine(PlanetNameHeader + name);
+                Console.WriteLine(PositionNumberHeader + positionNumber);
+                Console.WriteLine($"{EquatorLengthHeader} {equatorLength} км.");
+                if (IsEqualVenus is not null)
+                    Console.WriteLine($"{IsEqualVenusHeader} {(IsEqualVenus.Value ? "Да" : "Нет")}");
             }
-            Console.WriteLine(_separatorLine);
+            Console.WriteLine(SeparatorLine);
         }
     }
 }

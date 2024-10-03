@@ -32,7 +32,7 @@ namespace AnonymousTypesHomework
             {
                 foreach (var planet in _planets)
                 {
-                    if ((int)number == planet.PositionNumberFromTheSun)
+                    if ((short)number == planet.PositionNumberFromTheSun)
                     {
                         result.Add(planet);
                     }

@@ -68,7 +68,7 @@ namespace AnonymousTypesHomework
             (short posNumber, int equatorLength, string? exMessage) result = new();
 
             // Выполняем валидацию перед поиском планеты
-            if (GetPlanetByNameCallCount % 3 == 0)
+            if (GetPlanetByNameCallCount % 3 is 0)
             {
                 result.exMessage = "Вы спрашиваете слишком часто";
                 return result;
@@ -83,7 +83,7 @@ namespace AnonymousTypesHomework
                 }
             }
 
-            if (result.posNumber is 0 && result.equatorLength is 0)
+            if (result.posNumber is 0 || result.equatorLength is 0)
             {
                 result.exMessage = "Не удалось найти планету";
             }
