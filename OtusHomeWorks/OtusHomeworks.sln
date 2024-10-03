@@ -10,9 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnonymousTypesHomework", "AnonymousTypesHomeWork\AnonymousTypesHomework.csproj", "{5DEE578D-9C56-413F-883F-7012C3EFF6F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnonymousTypesHomework", "AnonymousTypesHomework\AnonymousTypesHomework.csproj", "{5DEE578D-9C56-413F-883F-7012C3EFF6F7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionsHomework", "ExceptionsHomeWork\ExceptionsHomework.csproj", "{20129086-12A4-4ACE-B201-C0099686ECBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionsHomework", "ExceptionsHomework\ExceptionsHomework.csproj", "{20129086-12A4-4ACE-B201-C0099686ECBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
