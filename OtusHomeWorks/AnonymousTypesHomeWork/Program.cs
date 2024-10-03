@@ -1,4 +1,4 @@
-﻿namespace AnonymousTypesHomeWork
+﻿namespace AnonymousTypesHomework
 {
     internal class Program
     {

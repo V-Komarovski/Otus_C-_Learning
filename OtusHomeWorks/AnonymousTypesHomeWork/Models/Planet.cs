@@ -1,4 +1,4 @@
-﻿namespace AnonymousTypesHomeWork.Models
+﻿namespace AnonymousTypesHomework.Models
 {
     /// <summary>
     /// Модель планеты.

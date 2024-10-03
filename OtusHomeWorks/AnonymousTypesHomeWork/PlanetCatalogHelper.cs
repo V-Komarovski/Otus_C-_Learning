@@ -1,7 +1,7 @@
-﻿using AnonymousTypesHomeWork.Enums;
-using AnonymousTypesHomeWork.Models;
+﻿using AnonymousTypesHomework.Enums;
+using AnonymousTypesHomework.Models;
 
-namespace AnonymousTypesHomeWork
+namespace AnonymousTypesHomework
 {
     public static class PlanetCatalogHelper
     {

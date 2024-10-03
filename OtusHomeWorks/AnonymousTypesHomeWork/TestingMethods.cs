@@ -1,6 +1,6 @@
-﻿using AnonymousTypesHomeWork.Enums;
+﻿using AnonymousTypesHomework.Enums;
 
-namespace AnonymousTypesHomeWork
+namespace AnonymousTypesHomework
 {
     internal static class TestingMethods
     {

@@ -1,4 +1,4 @@
-﻿namespace AnonymousTypesHomeWork.Enums
+﻿namespace AnonymousTypesHomework.Enums
 {
     /// <summary>
     /// Планеты Солнечной системы (идут по порядку от Солнца).
