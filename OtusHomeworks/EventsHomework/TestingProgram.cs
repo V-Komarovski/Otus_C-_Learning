@@ -73,7 +73,7 @@ namespace EventsHomework
                 {
                     Console.WriteLine($"Загрузка изображения № {i + 1} {(downloadImageTasks[i].IsCompleted ? "завершена" : "продолжается")}");
                 }
-            } while (command.KeyChar is not 'a' and not 'A');
+            } while (command.Key != ConsoleKey.A);
             cts.Cancel();
 
             return;
