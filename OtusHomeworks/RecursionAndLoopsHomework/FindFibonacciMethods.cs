@@ -7,6 +7,8 @@ namespace RecursionAndLoopsHomework
         public static void StartProgram()
         {
             int[] indexes = [5, 10, 20];
+
+            var result = indexes.Where(i => i > 0);
             var timer = new Stopwatch();
 
             Console.WriteLine("Нахождение чисел Фибоначчи через рекурсию:");
@@ -20,7 +22,7 @@ namespace RecursionAndLoopsHomework
             foreach (var index in indexes)
             {
                 timer.Start();
-                var number = findFibonacciMethod(index);
+                var number = findFibonacciMethod?.Invoke(index);
                 timer.Stop();
                 Console.WriteLine($"{index}-е число Фибоначчи: {number}, затраченное время - {timer.ElapsedTicks} тиков");
                 timer.Reset();

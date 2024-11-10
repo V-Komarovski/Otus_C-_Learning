@@ -14,7 +14,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnonymousTypesHomework", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionsHomework", "ExceptionsHomework\ExceptionsHomework.csproj", "{20129086-12A4-4ACE-B201-C0099686ECBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursionAndLoopsHomework", "RecursionAndLoopsHomework\RecursionAndLoopsHomework.csproj", "{3B4FAF77-EB49-43FE-94E1-364647E58E17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecursionAndLoopsHomework", "RecursionAndLoopsHomework\RecursionAndLoopsHomework.csproj", "{3B4FAF77-EB49-43FE-94E1-364647E58E17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsHomework", "EventsHomework\EventsHomework.csproj", "{E9EC780C-7673-460F-9634-162F75A14B02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{3B4FAF77-EB49-43FE-94E1-364647E58E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B4FAF77-EB49-43FE-94E1-364647E58E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B4FAF77-EB49-43FE-94E1-364647E58E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9EC780C-7673-460F-9634-162F75A14B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9EC780C-7673-460F-9634-162F75A14B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9EC780C-7673-460F-9634-162F75A14B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9EC780C-7673-460F-9634-162F75A14B02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
